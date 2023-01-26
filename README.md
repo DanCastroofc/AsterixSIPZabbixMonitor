@@ -58,7 +58,7 @@ Para o monitoramento do tronco SIP do Asterisk, e necessário já possuir o Zabb
     
   5. Insira o nome do SIP no campo do valor da do Macro (Segundo Campo)
     
-    > **Note**
-    > O valor declarado aqui deve ser **igual ao configurado no Asterisk**, caso contraio comando irá falhar e o monitoramento também.
+  > **Note**
+  > O valor declarado aqui deve ser **igual ao configurado no Asterisk**, caso contraio comando irá falhar e o monitoramento também.
     
 3. Salve as alterações.

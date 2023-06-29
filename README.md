@@ -2,13 +2,13 @@
 
 #voip #sip #asterisk
 
-Para o monitoramento do tronco SIP do Asterisk, e necessário já possuir o Zabbix Instalado e Configurado. O modo de monitoramento consiste em usar o comando `asterisk -rx "sip show peer <NomeSIP>"` , filtrar sua saída buscando o campo **status** e verificando se o valor é igual a **ok**, caso o valor desejado não for encontrado, a trigger e disparada.
+Este guia descreve o processo de monitoramento do tronco SIP no Asterisk usando o Zabbix. Certifique-se de ter o Zabbix instalado e configurado antes de prosseguir. O monitoramento é realizado utilizando o comando asterisk -rx "sip show peer <NomeSIP>", filtrando a saída para buscar o campo "status" e verificar se o valor é igual a "ok". Caso o valor desejado não seja encontrado, uma trigger é disparada.
 
 ---
 
 ## User Parameterse
 
-1. Crie um arquivo para os parâmetros:
+1. Crie um arquivo para os parâmetros do monitoramento:
   
   ```bash
   nano /etc/zabbix/zabbix_agent.d/userparameter_asterisk.conf
@@ -26,13 +26,13 @@ Para o monitoramento do tronco SIP do Asterisk, e necessário já possuir o Zabb
 
 ## Permissões
 
-1. Crie um arquivo na pasta `sudoers.d`
+1. Crie um arquivo do diretório `sudoers.d` para adicionar as permissões necessárias para o monitoramento.
   
   ```bash
   nano /etc/sudoers.d/zabbix
   ```
   
-2. Adicione o seguinte parâmetro
+2. Adicione o seguinte parâmetro:
   
   ```bash
   #Monitoramento Asterisk
@@ -42,23 +42,24 @@ Para o monitoramento do tronco SIP do Asterisk, e necessário já possuir o Zabb
 
 ---
 
-## Configurando a Template
+Configuração da Template
+Adicione a template ao Host que deseja monitorar.
 
-1. Adicione a template no Host que deseja monitorar.
-  
-2. Edite o macro **SIP_NAME** adicionando o nome do SIP que deseja monitorar.
-  
-  1. Abra as configurações do host.
-    
-  2. Navegue até a aba macro
-    
-  3. Clique em **Macros herdadas e do Host**
-    
-  4. Busque pelo macro **{$SIP_NAME}** e clique em modificar.
-    
-  5. Insira o nome do SIP no campo do valor da do Macro (Segundo Campo)
+1. Edite o macro SIP_NAME adicionando o nome do SIP que deseja monitorar.
+
+2. Abra as configurações do host.
+
+  1. Navegue até a aba "Macro".
+
+  2. Clique em "Macros herdadas e do Host".
+
+  3. Busque pelo macro {$SIP_NAME} e clique em "Modificar".
+
+  4. Insira o nome do SIP no campo de valor do Macro (segundo campo).
     
   > **Note**
-  > O valor declarado aqui deve ser **igual ao configurado no Asterisk**, caso contraio comando irá falhar e o monitoramento também.
+  > O valor declarado aqui deve ser igual à configuração definida no Asterisk. Caso contrário, o comando irá falhar e o monitoramento não será bem-sucedido.
     
 3. Salve as alterações.
+
+Certifique-se de revisar e testar as etapas descritas nesta documentação para garantir que tudo esteja correto e funcione conforme o esperado.

@@ -2,7 +2,7 @@
 
 #voip #sip #asterisk
 
-Este guia descreve o processo de monitoramento do tronco SIP no Asterisk usando o Zabbix. Certifique-se de ter o Zabbix instalado e configurado antes de prosseguir. O monitoramento é realizado utilizando o comando asterisk -rx "sip show peer <NomeSIP>", filtrando a saída para buscar o campo "status" e verificar se o valor é igual a "ok". Caso o valor desejado não seja encontrado, uma trigger é disparada.
+Este guia descreve o processo de monitoramento do tronco SIP no Asterisk usando o Zabbix Agent. Certifique-se de ter o Zabbix instalado e configurado antes de prosseguir. O monitoramento é realizado utilizando o comando asterisk -rx "sip show peer <NomeSIP>", filtrando a saída para buscar o campo "status" e verificar se o valor é igual a "ok". Caso o valor desejado não seja encontrado, uma trigger é disparada.
 
 ---
 

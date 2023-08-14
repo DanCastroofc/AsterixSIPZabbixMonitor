@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zabbix_export>
+    <version>6.0</version>
+    <date>2023-08-14T14:31:57Z</date>
+    <groups>
+        <group>
+            <uuid>7df96b18c230490a9a0a9e2307226338</uuid>
+            <name>Templates</name>
+        </group>
+    </groups>
+    <templates>
+        <template>
+            <uuid>a62a2efcfb044a23a5bd1dcf3de759b5</uuid>
+            <template>asteristrinkstatus</template>
+            <name>Asterisk VoIP SIP Trunk Status</name>
+            <description>Template criada por Daniel Castro.
+
+Lembre-se de alterar o Macro com o nome do tronco que deseja monitorar.
+
+O modo de monitoramento consiste em usar o comando asterisk -rx &quot;sip show peer &lt;NomeSIP&gt;&quot; , filtrar sua saída buscando o campo status e verificando se o valor é igual a ok, caso o valor desejado não for encontrado, a trigger e disparada.</description>
+            <groups>
+                <group>
+                    <name>Templates</name>
+                </group>
+            </groups>
+            <items>
+                <item>
+                    <uuid>477df2dd81f74db1bc268726eaac3404</uuid>
+                    <name>Trunk 1 Status</name>
+                    <key>trunkstatus[{$SIP_NAME1}]</key>
+                    <trends>0</trends>
+                    <value_type>TEXT</value_type>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>Asterisk</value>
+                        </tag>
+                    </tags>
+                    <triggers>
+                        <trigger>
+                            <uuid>dd7818d357114bdc9adfdbd0ba6783a8</uuid>
+                            <expression>nodata(/asteristrinkstatus/trunkstatus[{$SIP_NAME1}],5m)=1</expression>
+                            <name>No trunk data from {$SIP_NAME1} at {HOST.NAME}</name>
+                            <priority>AVERAGE</priority>
+                        </trigger>
+                        <trigger>
+                            <uuid>37c7a163e9564702a90eec7f9ce5b914</uuid>
+                            <expression>find(/asteristrinkstatus/trunkstatus[{$SIP_NAME1}],,&quot;iregexp&quot;,&quot;OK&quot;)=0</expression>
+                            <name>SIP {$SIP_NAME1} Status {ITEM.LASTVALUE1} on {HOST.NAME}</name>
+                            <priority>HIGH</priority>
+                        </trigger>
+                    </triggers>
+                </item>
+                <item>
+                    <uuid>91a16ec8c0284d0f8cc62316363b3b9f</uuid>
+                    <name>Trunk 2 Status</name>
+                    <key>trunkstatus[{$SIP_NAME2}]</key>
+                    <trends>0</trends>
+                    <value_type>TEXT</value_type>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>Asterisk</value>
+                        </tag>
+                    </tags>
+                    <triggers>
+                        <trigger>
+                            <uuid>36adf7b5dd93484eac6051e7d3a38372</uuid>
+                            <expression>nodata(/asteristrinkstatus/trunkstatus[{$SIP_NAME2}],5m)=1</expression>
+                            <name>No trunk data from {$SIP_NAME2} at {HOST.NAME}</name>
+                            <priority>AVERAGE</priority>
+                        </trigger>
+                        <trigger>
+                            <uuid>43bc5f660db14746841c000bd9c75cdd</uuid>
+                            <expression>find(/asteristrinkstatus/trunkstatus[{$SIP_NAME2}],,&quot;iregexp&quot;,&quot;OK&quot;)=0</expression>
+                            <name>SIP {$SIP_NAME2} Status {ITEM.LASTVALUE1} on {HOST.NAME}</name>
+                            <priority>HIGH</priority>
+                        </trigger>
+                    </triggers>
+                </item>
+                <item>
+                    <uuid>3b9a501101b045ef934516e70d43f84b</uuid>
+                    <name>Trunk 3 Status</name>
+                    <key>trunkstatus[{$SIP_NAME3}]</key>
+                    <trends>0</trends>
+                    <value_type>TEXT</value_type>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>Asterisk</value>
+                        </tag>
+                    </tags>
+                    <triggers>
+                        <trigger>
+                            <uuid>09ad089440c746b68ebf1001c09278ec</uuid>
+                            <expression>nodata(/asteristrinkstatus/trunkstatus[{$SIP_NAME3}],5m)=1</expression>
+                            <name>No trunk data from {$SIP_NAME3} at {HOST.NAME}</name>
+                            <priority>AVERAGE</priority>
+                        </trigger>
+                        <trigger>
+                            <uuid>55fdbc188e6a4092b710ca3326ac217c</uuid>
+                            <expression>find(/asteristrinkstatus/trunkstatus[{$SIP_NAME3}],,&quot;iregexp&quot;,&quot;OK&quot;)=0</expression>
+                            <name>SIP {$SIP_NAME3} Status {ITEM.LASTVALUE1} on {HOST.NAME}</name>
+                            <priority>HIGH</priority>
+                        </trigger>
+                    </triggers>
+                </item>
+                <item>
+                    <uuid>550ba87b07a64a7bb3b97799beb0f607</uuid>
+                    <name>Trunk 4 Status</name>
+                    <key>trunkstatus[{$SIP_NAME4}]</key>
+                    <trends>0</trends>
+                    <value_type>TEXT</value_type>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>Asterisk</value>
+                        </tag>
+                    </tags>
+                    <triggers>
+                        <trigger>
+                            <uuid>e304b0c11eff48ec9a5aaa34b71e1ab1</uuid>
+                            <expression>nodata(/asteristrinkstatus/trunkstatus[{$SIP_NAME4}],5m)=1</expression>
+                            <name>No trunk data from {$SIP_NAME4} at {HOST.NAME}</name>
+                            <priority>AVERAGE</priority>
+                        </trigger>
+                        <trigger>
+                            <uuid>c39b690ce8b546bd85ac41f7a67e0f40</uuid>
+                            <expression>find(/asteristrinkstatus/trunkstatus[{$SIP_NAME4}],,&quot;iregexp&quot;,&quot;OK&quot;)=0</expression>
+                            <name>SIP {$SIP_NAME4} Status {ITEM.LASTVALUE1} on {HOST.NAME}</name>
+                            <priority>HIGH</priority>
+                        </trigger>
+                    </triggers>
+                </item>
+                <item>
+                    <uuid>bfc4fb3273c1409884980dec0e2e2930</uuid>
+                    <name>Trunk 5 Status</name>
+                    <key>trunkstatus[{$SIP_NAME5}]</key>
+                    <trends>0</trends>
+                    <value_type>TEXT</value_type>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>Asterisk</value>
+                        </tag>
+                    </tags>
+                    <triggers>
+                        <trigger>
+                            <uuid>ea90f9cdd5874d6cae74c19ecb18a001</uuid>
+                            <expression>nodata(/asteristrinkstatus/trunkstatus[{$SIP_NAME5}],5m)=1</expression>
+                            <name>No trunk data from {$SIP_NAME5} at {HOST.NAME}</name>
+                            <priority>AVERAGE</priority>
+                        </trigger>
+                        <trigger>
+                            <uuid>9f9942d43c7a47c0a0f3cfc2bfb15d51</uuid>
+                            <expression>find(/asteristrinkstatus/trunkstatus[{$SIP_NAME5}],,&quot;iregexp&quot;,&quot;OK&quot;)=0</expression>
+                            <name>SIP {$SIP_NAME5} Status {ITEM.LASTVALUE1} on {HOST.NAME}</name>
+                            <priority>HIGH</priority>
+                        </trigger>
+                    </triggers>
+                </item>
+            </items>
+            <macros>
+                <macro>
+                    <macro>{$SIP_NAME1}</macro>
+                    <description>Nome do SIP 1</description>
+                </macro>
+                <macro>
+                    <macro>{$SIP_NAME2}</macro>
+                    <description>Nome do SIP 2</description>
+                </macro>
+                <macro>
+                    <macro>{$SIP_NAME3}</macro>
+                    <description>Nome do SIP 3</description>
+                </macro>
+                <macro>
+                    <macro>{$SIP_NAME4}</macro>
+                    <description>Nome do SIP 4</description>
+                </macro>
+                <macro>
+                    <macro>{$SIP_NAME5}</macro>
+                    <description>Nome do SIP 5</description>
+                </macro>
+            </macros>
+        </template>
+    </templates>
+</zabbix_export>

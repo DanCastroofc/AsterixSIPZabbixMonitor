@@ -6,7 +6,7 @@ Este guia descreve o processo de monitoramento do tronco SIP no Asterisk usando 
 
 ---
 
-## User Parameterse
+## User Parameters
 
 1. Crie um arquivo para os parâmetros do monitoramento:
   
